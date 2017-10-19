@@ -335,6 +335,7 @@ if args.dork:
     bypass()
 
 if args.hash:
+    hashvalue = args.hash
     HashBuster(hashvalue)
     if len(cracked) != 0:
         print "\033[1;31m[-]\033[1;m Sorry this hash is not present in our database."
