@@ -358,4 +358,8 @@ if args.admin:
     type = args.type
     get_paths(type)
     link = args.admin
+    if 'http://' in link or 'https://' in link:
+        pass
+    else:
+        link = 'http://' + link 
     admin_e(link)
