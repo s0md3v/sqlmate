@@ -1,11 +1,11 @@
 # sqlmate
 <img src='https://i.imgur.com/iXwyVul.png' />
-A friend of SQLmap which will do what you always expected from SQLmap.
+Hash Lookup, admin panel finding, getting vulnerable websites with dorks, scraping dorks. These are some features that we always wanted to have in SQLMap. Well SQLMate can do that for you.
 
 ## What it does?
 - Feed it a SQL injection dork via <b>--dork</b> option and it will find vulnerable sites for you. After that, it will try to find their admin panels and also try to bypass them with SQL queries.
 
-- It can do very fast hashlookup for MD5, SHA1 and SHA2. You can supply a hash with <b>--hash</b> option. Average lookup takes less than 2 seconds.
+- It can do very fast hash lookups for MD5, SHA1 and SHA2. You can supply a hash with <b>--hash</b> option. Average lookup takes less than 2 seconds.
 
 - You can also supply it a txt file containing hashes to be cracked with <b>--list <path></b> option.
   
