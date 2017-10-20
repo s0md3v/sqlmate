@@ -20,7 +20,6 @@ Scroll down for more.
 <img src='https://i.imgur.com/ww2zupy.png' />
 <img src='https://i.imgur.com/itjrbrH.png' />
 <img src='https://i.imgur.com/IxFbg8G.png' />
-<img src='https://i.imgur.com/EQ0OJtA.png' />
 
 #### Running SQLMate
 Enter the following command in terminal to download SQLMate
