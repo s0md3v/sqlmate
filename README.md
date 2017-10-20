@@ -1,6 +1,6 @@
 # sqlmate
 <img src='https://i.imgur.com/iXwyVul.png' />
-Hash Lookup, admin panel finding, getting vulnerable websites with dorks, scraping dorks. These are some features that we always wanted to have in SQLMap. Well SQLMate can do that for you.
+There are some features that we think SQLMap should have. Like finding admin panel of the target, better hash cracking etc. If you think the same, SQLMate is for you.
 
 ## What it does?
 - Feed it a SQL injection dork via <b>--dork</b> option and it will find vulnerable sites for you. After that, it will try to find their admin panels and also try to bypass them with SQL queries.
