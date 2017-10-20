@@ -1,6 +1,6 @@
 mechanize
 bs4
 HTMLparser
-argsparse
+argparse
 requests
 urlparse
