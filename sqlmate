@@ -327,7 +327,7 @@ def HashBuster(hashvalue):
         elif match == None:
             data = {"md5":hashvalue,"x":"21","y":"8"}
             html = requests.post("http://md5.my-addr.com/md5_decrypt-md5_cracker_online/md5_decoder_tool.php", data=data)
-            find = html.txt
+            find = html.text
             match = search (r"<span class='middle_title'>Hashed string</span>: [^<]*</div>", find)    
             if match:
                 print "\033[1;32m[+]\033[0m %s : "%hashvalue, match.group().split('span')[2][3:-6]
