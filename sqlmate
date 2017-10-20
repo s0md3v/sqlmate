@@ -8,7 +8,11 @@ from urllib import unquote
 from HTMLParser import HTMLParser
 from urlparse import urlparse
 import mechanize
+import datetime
 import argparse #module for parsing command line arguments
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 print '''\033[1;93m
         ___
@@ -23,13 +27,14 @@ parser = argparse.ArgumentParser() #defines the parser
 parser.add_argument("--dork", help="Supply a dork and let SQLMate do its thing", dest='dork', nargs='+')
 parser.add_argument("--hash", help="'Crack' a hash in 5 secs", dest='hash')
 parser.add_argument("--list", help="Import and crack hashes from a txt file", dest='hashlist', metavar='<path>')
+parser.add_argument("--dump", help="Get dorks. Specify dumping level. Level 1 = 20 dorks", dest='page', metavar='1-184')
 parser.add_argument("--admin", help="Find admin panel of website", dest='admin', metavar='URL')
 parser.add_argument("--type", help="Choose extension to scan (Use with --admin option, Default is all)", dest='type', metavar='PHP,ASP,HTML')
 args = parser.parse_args()
 if args.dork:
     ' '.join(args.dork)
 
-if not args.dork and not args.hash and not args.hashlist and not args.admin:
+if not args.dork and not args.hash and not args.hashlist and not args.admin and not args.page:
     help = parser.format_help()
     help = help.replace('[DORK ...]\n','').replace('              ','').replace(' [DORK ...]','')
     help = help.replace('Default','\t\tDefault')
@@ -51,6 +56,7 @@ num = 0
 hashes = []
 cracked = []
 start = ['0', '10', '20', '30']
+dorks = []
 
 ################################
 #     Function for Dorking     #
@@ -152,6 +158,32 @@ def get_paths(type):
     except IOError:
         print"\033[1;31m[-]\033[1;m paths.txt not found!"
         quit()
+
+################################################
+#   Function for scarping/dumping dorks        #
+################################################
+
+def get_dorks(page):
+    for page in range(int(page)):
+        print "[+] Finding dorks on page %i"%(page + 1)
+        url = 'https://cxsecurity.com/dorks/' + str(page)
+        response = requests.get(url).text
+        response = HTMLParser().unescape(response)
+        response = unicode(response)        
+        matches = findall(r'<B>Dork:</B>[^<]*</font>', response)
+        if matches:
+            for match in matches:
+                try:
+                    match = match.replace('<B>Dork:</B>', '').replace('</font>','')
+                    dorks.append(match)
+                except:
+                    pass
+    now = datetime.datetime.now()
+    filename = ("dorks%i:%i.txt"%(now.hour,now.minute))
+    with open(filename, "a") as f:
+        for dork in dorks:
+            f.write(dork + '\n')
+    print 'Dorks saved to %s'% filename
 
 ############################################################
 #  Mod of Blazy (https://github.com/UltimateHackers/Blazy)
@@ -363,3 +395,6 @@ if args.admin:
     else:
         link = 'http://' + link 
     admin_e(link)
+if args.page:
+    page = args.page
+    get_dorks(page)
