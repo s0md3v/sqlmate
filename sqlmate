@@ -165,7 +165,7 @@ def get_paths(type):
 
 def get_dorks(page):
     for page in range(int(page)):
-        print "[+] Finding dorks on page %i"%(page + 1)
+        print "\033[1;32m[+]\033[0m Finding dorks on page %i"%(page + 1)
         url = 'https://cxsecurity.com/dorks/' + str(page)
         response = requests.get(url).text
         response = HTMLParser().unescape(response)
@@ -183,7 +183,7 @@ def get_dorks(page):
     with open(filename, "a") as f:
         for dork in dorks:
             f.write(dork + '\n')
-    print 'Dorks saved to %s'% filename
+    print '\033[1;32m[+]\033[0m Dorks dumped in %s'% filename
 
 ############################################################
 #  Mod of Blazy (https://github.com/UltimateHackers/Blazy)
