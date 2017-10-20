@@ -1,0 +1,6 @@
+mechanize
+bs4
+HTMLparser
+argsparse
+requests
+urlparse
