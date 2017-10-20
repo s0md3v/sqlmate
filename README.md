@@ -11,7 +11,7 @@ A friend of SQLmap which will do what you always expected from SQLmap.
   
 - The first mode just checks for 13 most common admin panel locations but if you feed a website through <b>--admin</b> option, you can do a full scan using 482 paths.
 
-- SQLMate has ability to scrape dorks as well. Specify dumping level via <b>--dump</b> option. Using <b>--dump 1</b> will dump nearly 20 dorks so set the level anywhere between 1-184 as per your needs. SQLMate automatically saves the dorks into a txt file so you can use them later.
+- SQLMate has ability to scrap dorks as well. Specify dumping level via <b>--dump</b> option. Using <b>--dump 1</b> will dump nearly 20 dorks so set the level anywhere between 1-184 as per your needs. SQLMate automatically saves the dorks into a txt file so you can use them later.
 
 Scroll down for more.
 
