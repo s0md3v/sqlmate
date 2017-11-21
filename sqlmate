@@ -250,13 +250,13 @@ def bypass():
             if i_title == None:
                 data = data.lower()
                 if 'logout' in data:
-                    print '\n\033[1;32m[+]\033[0m ' + login
+                    print '\n\033[1;32m[+]\033[0m Login page is vulnerable to SQLi'
                 else:
                     pass
             else:
                 injected = i_title.contents
                 if original != injected:
-                    print '\n\033[1;32m[+]\033[0m ' + login
+                    print '\n\033[1;32m[+]\033[0m Login page is vulnerable to SQLi'
                 else:
                     pass
     for url in logins:
